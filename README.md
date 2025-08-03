@@ -54,20 +54,20 @@ This project implements a backend GraphQL API for a travel planning application,
 - **Simplicity over Scalability (for some parts):** For the given time constraint, some aspects (like activity ranking logic) are kept simple. Scaling this logic would involve externalizing rules or using a dedicated rules engine.
 - **Direct API Calls in Service:** The `openMeteoService` makes direct HTTP calls. For very large-scale applications, a dedicated data layer or a more abstract `DataSource` pattern (like Apollo's `RESTDataSource`) could be considered for better integration with Apollo Server's caching features. However, for this test, a simple service is sufficient and clear.
 
-# How to Run the Project Locally
+## How to Run the Project Locally
 
-## Prerequisites
+1. **Prerequisites**
 
-- Node.js (version 18.x or later recommended)
-- npm (usually comes with Node.js)
+   - Node.js (version 18.x or later recommended)
+   - npm (usually comes with Node.js)
 
 1. **Clone The Repository**
    First, clone the project repository to your local machine.
 
-```
-git clone <repository-url>
-cd <repository-folder>
-```
+   ```
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
 
 2. **Install Dependencies**
    Install all the necessary npm packages defined in package.json.
@@ -75,22 +75,21 @@ cd <repository-folder>
 
 3. **Set Up Environment Variables**
    This project requires environment variables to connect to the external Open-Meteo APIs.
+   Create a new file named .env in the root directory of the project. Then, copy and paste the following content into it:
 
-Create a new file named .env in the root directory of the project. Then, copy and paste the following content into it:
-
-```
-OPENMETEO_GEOCODING_API_URL=https://geocoding-api.open-meteo.com
-OPENMETEO_WEATHER_API_URL=https://api.open-meteo.com
-```
+   ```
+   OPENMETEO_GEOCODING_API_URL=https://geocoding-api.open-meteo.com
+   OPENMETEO_WEATHER_API_URL=https://api.open-meteo.com
+   ```
 
 4. **Run the Development Server**
    Start the application in development mode. This will use nodemon to automatically restart the server when you make changes to the code.
    `npm run dev`
 
-You should see a confirmation message in your terminal once the server is running, similar to:
-`🚀 Server ready at http://localhost:4000/graphql`
+   You should see a confirmation message in your terminal once the server is running, similar to:
+   `🚀 Server ready at http://localhost:4000/graphql`
 
-You can now open your browser and navigate to `http://localhost:4000/graphql` to access the Apollo Server Sandbox and start making queries!
+   You can now open your browser and navigate to `http://localhost:4000/graphql` to access the Apollo Server Sandbox and start making queries!
 
 ## How I Would Improve or Extend the Project with More Time
 
